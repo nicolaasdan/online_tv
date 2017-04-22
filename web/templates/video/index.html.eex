@@ -1,0 +1,46 @@
+ <div class='container'>
+    <h4> Videos of todays:
+      <%= for todays_vids <- @todays_vids do %>
+        <%= todays_vids.title %>,
+      <% end %>
+    </h4>
+
+
+  <h2>Listing videos</h2>
+
+  <table class="table">
+    <thead>
+
+      <tr>
+        <th>User</th>
+        <th>Url</th>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Start</th>
+        <th>End</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+  <%= for video <- @videos do %>
+      <tr>
+        <td><%= video.user_id %></td>
+        <td><%= video.url %></td>
+        <td><%= video.title %></td>
+        <td><%= video.duration %></td>
+        <td><%= video.start %></td>
+        <td><%= video.end %></td>
+
+        <td class="text-right">
+          <%= link "Show", to: video_path(@conn, :show, video), class: "btn btn-default btn-xs" %>
+          <%= link "Edit", to: video_path(@conn, :edit, video), class: "btn btn-default btn-xs" %>
+          <%= link "Delete", to: video_path(@conn, :delete, video), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        </td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+
+  <%= link "New video", to: video_path(@conn, :new) %>
+ </div>

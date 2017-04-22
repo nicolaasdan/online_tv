@@ -1,0 +1,12 @@
+<div id="sidebars" class="container-fluid">
+	<div id="cover" class="container-fluid">
+		<div class="video-container">
+			<p id="info">Videos start automatically, no need to refresh</p>
+			<div id="video"></div>	
+		</div>
+	</div>
+</div>
+<div class="container" style="text-align:right;">
+	<span id="toggles"></span>
+</div>
+

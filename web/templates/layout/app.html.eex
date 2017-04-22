@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hello OnlineTv!</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+
+  <div class="container">
+    <ul style="text-align: center;">
+      <li class="navigation"><%= link "watch", to: page_path(@conn, :index) %></li>
+      <li class="navigation" id="logo">Online TV</li>
+      <li class="navigation"><%= link "schedule", to: page_path(@conn, :schedule)%></li>
+      <%= if @current_user do %>
+        <li class="navigation"><%= link "videos", to: video_path(@conn, :index)%></li>
+        <li class="navigation"><%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete" %></li>
+        <li class="navigation"><%= @current_user.username %></li>        
+      <% end %>
+    </ul>
+
+  </div>
+    <div class="container-fluid">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+    </div> <!-- /container -->
+
+    <footer class="footer">
+      <div class='container'>
+        <%= link "About", to: page_path(@conn, :about) %>
+        <p id= "footer">Created with <a href="http://elixir-lang.org">Elixir</a> + <a href="http://www.phoenixframework.org">Phoenix</a> and powered by <a href="http://www.youtube.com">YouTube</a></p>
+      </div>
+    </footer>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>
