@@ -20,7 +20,7 @@ defmodule OnlineTv.Router do
     get "/", PageController, :index
     get "/schedule", PageController, :schedule
     get "/about", PageController, :about
-    resources "/users", UserController, only: [:index, :show]
+    resources "/users", UserController, only: [:new, :create, :index, :show]
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
