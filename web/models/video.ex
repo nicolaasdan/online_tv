@@ -21,7 +21,7 @@ defmodule OnlineTv.Video do
     |> cast(params, [:url, :title, :duration, :start, :end, :category_id])
     |> validate_required([:url, :title, :duration, :start])
     |> add_dur
-    |> add_end
+    #|> add_end
   end
 
   def add_dur(changeset) do

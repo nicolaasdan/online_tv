@@ -54,10 +54,10 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 
 socket.connect()
 
-let list    = $('#message-list');
+let list    = $('#chat');
 let message = $('#message');
-let name    = $('#name');
 let title   = $('#title');
+let name    = $('#name');
 let video = document.getElementById("video")
 
 
@@ -68,6 +68,8 @@ channel.join()
     console.log("joined successfully!", resp)
     if(resp.vid) {
       Player.init(video.id, resp.vid, () => {Player.go_to(resp.sec)})
+      $('#name').remove()
+      $('#message').remove()
     } else {
       Player.init(video.id, resp.vid, () => {Player.removePlayer()})
     }
@@ -80,17 +82,25 @@ export default socket
 ///////////////// custom /////////////////:
 
 
-
 message.on('keypress', event => {
   if (event.keyCode == 13) {
-    channel.push('new_message', { name: name.val(), message: message.val() });
+    channel.push('message', { name: name.val(), message: message.val() });
     message.val('');
   }
 });
 
-channel.on('new_message', payload => {
-  list.append(`<b>${payload.name || 'Anonymous'}:</b> ${payload.message}<br>`);
-  list.prop({scrollTop: list.prop("scrollHeight")});
+
+channel.on('message', payload => {
+  if(payload.name === "" || payload.message === "") {
+
+  } else {
+    list.append('<b>'),
+    list.append(document.createTextNode( payload.name )),
+    list.append('</b>: '),
+    list.append(document.createTextNode( payload.message )),
+    list.append('<br>'),
+    list.prop({scrollTop: list.prop("scrollHeight")});
+  }
 });
 
 channel.on('brussels', payload => {
@@ -99,8 +109,22 @@ channel.on('brussels', payload => {
   //title.html(`${json.msg}`);
   if(json.msg == "video is nil") {
     Player.removePlayer()
+    $("#chat-input").append("<div class='col-md-3'><input type='text' id='name' class='form-control' placeholder='Name' /></div><div class='col-md-9'><input type='text' id='message' class='form-control' placeholder='Message' /></div>")
+
+    let message = $('#message');
+    let name    = $('#name');
+
+    message.on('keypress', event => {
+      if (event.keyCode == 13) {
+        channel.push('message', { name: name.val(), message: message.val() });
+        message.val('');
+      }
+    });
+
   } else {
     Player.onIframeReady(video.id, json.msg, () => {})
+    $("#name").remove()
+    $("#message").remove()
   }
 });
 

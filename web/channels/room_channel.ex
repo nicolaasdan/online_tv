@@ -3,12 +3,11 @@ defmodule OnlineTv.RoomChannel do
 
   def join("room", _payload, socket) do
     seconds = %{vid: OnlineTv.BrusVids.on_join, sec: OnlineTv.BrusVids.play}
-
     {:ok, seconds, socket}
   end
 
-  def handle_in("new_message", payload, socket) do
-    broadcast! socket, "new_message", payload
+  def handle_in("message", payload, socket) do
+    broadcast! socket, "message", payload
     {:noreply, socket}
   end
 
