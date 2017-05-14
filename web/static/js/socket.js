@@ -81,28 +81,6 @@ export default socket
 
 ///////////////// custom /////////////////:
 
-
-message.on('keypress', event => {
-  if (event.keyCode == 13) {
-    channel.push('message', { name: name.val(), message: message.val() });
-    message.val('');
-  }
-});
-
-
-channel.on('message', payload => {
-  if(payload.name === "" || payload.message === "") {
-
-  } else {
-    list.append('<b>'),
-    list.append(document.createTextNode( payload.name )),
-    list.append('</b>: '),
-    list.append(document.createTextNode( payload.message )),
-    list.append('<br>'),
-    list.prop({scrollTop: list.prop("scrollHeight")});
-  }
-});
-
 channel.on('brussels', payload => {
   var json = JSON.parse(JSON.stringify(payload));
   //list.append(`<b>${json.name || 'Anonymous'}:</b> ${json.msg}<br>`);
@@ -133,3 +111,17 @@ channel.on('seconds', payload => {
   Player.play()
 });
 
+////////////////// TWEETS //////////////////
+let tweets_channel = socket.channel("tweets", {})
+
+tweets_channel.join()
+  .receive("ok", resp => {
+    console.log("joined tweets channel", resp)
+  })
+  .receive("error", resp => { console.log("Unable to join tweets channel", resp) })
+
+tweets_channel.on('message', payload => {
+  console.log(payload)
+  $("#tweetuser").text(payload.user.name + ": ")
+  $("#tweetmsg").text(payload.text)
+});

@@ -28,3 +28,10 @@ import_config "#{Mix.env}.exs"
 
 config :tubex, Tubex,
   api_key: "AIzaSyC36wPVsnJbngjTjxRwlsg5zGs_0Yf1akY"
+
+config :extwitter, :oauth, [
+   consumer_key: "yJi5ou9fL1Ht3QmsqE5jTWehy",
+   consumer_secret: "0qkWpgc9nHJ8425GLxRcrC9qL5dd0Ewf9rkfOxshGowM0rbKQZ",
+   access_token: "863399479277387776-xxW017VoyKscAlq6KqJX3FRfPMo11CF",
+   access_token_secret: "tc34WtkrDldGaNTQb0Mp8O6xN9ZdR6RUPBfPnES8K8QWE"
+]

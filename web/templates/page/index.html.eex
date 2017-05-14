@@ -3,7 +3,6 @@
 		<div class="video-container">
 			<p id="info">Videos start automatically, no need to refresh</p>
 			<div id="video"></div>
-			<div class="container" id="chat"></div>
 		</div>
 	</div>
 </div>
@@ -12,7 +11,7 @@
 </div>
 <br>
 
-<div class='container' id="chat-input">
-	<div class='col-md-3'><input type='text' id='name' class='form-control' maxlength='10' placeholder='Name' /></div>
-	<div class='col-md-9'><input type='text' id='message' class='form-control' maxlength='140' placeholder='Message' /></div>
+<div class='container'>
+	<b><div id="tweetuser"></div></b>
+	<div id="tweets"><span id="tweetmsg"></span></div>
 </div>

@@ -6,11 +6,6 @@ defmodule OnlineTv.RoomChannel do
     {:ok, seconds, socket}
   end
 
-  def handle_in("message", payload, socket) do
-    broadcast! socket, "message", payload
-    {:noreply, socket}
-  end
-
   def handle_in("brussels", payload, socket) do
   	broadcast! socket, "brussels", payload.msg
   	{:noreply, socket}

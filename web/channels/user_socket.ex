@@ -3,6 +3,7 @@ defmodule OnlineTv.UserSocket do
 
   ## Channels
   channel "room", OnlineTv.RoomChannel
+  channel "tweets", OnlineTv.TweetChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket,

@@ -19,7 +19,7 @@ defmodule OnlineTv.Mixfile do
   def application do
     [mod: {OnlineTv, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin, :timex, :tubex]]
+                    :phoenix_ecto, :postgrex, :comeonin, :timex, :tubex, :extwitter]]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,7 +40,9 @@ defmodule OnlineTv.Mixfile do
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 2.0"},
      {:timex, "~> 3.0"},
-     {:tubex, "~> 0.0.7"}]
+     {:tubex, "~> 0.0.7"},
+     {:oauth, github: "tim/erlang-oauth"},
+     {:extwitter, "~> 0.8"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
