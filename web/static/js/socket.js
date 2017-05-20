@@ -122,6 +122,6 @@ tweets_channel.join()
 
 tweets_channel.on('message', payload => {
   console.log(payload)
-  $("#tweetuser").text(payload.user.name + ": ")
-  $("#tweetmsg").text(payload.text)
+  $("#tweetuser").text(payload.user.name + ": ").hide().fadeIn()
+  $("#tweetmsg").text(payload.text).hide().fadeIn()
 });

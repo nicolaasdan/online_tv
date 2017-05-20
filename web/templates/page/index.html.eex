@@ -11,7 +11,8 @@
 </div>
 <br>
 
-<div class='container'>
+<div class='container' id="tweetcontainer">
+<img id="twitter-logo" src="<%= static_path(@conn, "/images/Twitter_Logo_Blue.png") %>">
 	<b><div id="tweetuser"></div></b>
 	<div id="tweets"><span id="tweetmsg"></span></div>
 </div>

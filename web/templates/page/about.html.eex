@@ -2,3 +2,8 @@
 	<p>Welcome,</p>
 	<p>This is a website where you can watch quality youtube videos at fixed times. See the schedule for more information</p>
 </div>
+
+<div class='container'>
+	<%= link "About", to: page_path(@conn, :about) %>
+    <p id= "footer">Created with <a href="http://elixir-lang.org">Elixir</a> + <a href="http://www.phoenixframework.org">Phoenix</a> and powered by <a href="http://www.youtube.com">YouTube</a></p>
+</div>

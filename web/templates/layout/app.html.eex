@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello OnlineTv!</title>
+    <title>YNTBS</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -15,18 +15,35 @@
   <body>
 
   <div class="container">
-    <ul style="text-align: center;">
-      <li class="navigation"><%= link "watch", to: page_path(@conn, :index) %></li>
-      <li class="navigation" id="logo">Online TV</li>
-      <li class="navigation"><%= link "schedule", to: page_path(@conn, :schedule)%></li>
-      <%= if @current_user do %>
-        <li class="navigation"><%= link "videos", to: video_path(@conn, :index)%></li>
-        <li class="navigation"><%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete" %></li>
-        <li class="navigation"><%= @current_user.username %></li>        
-      <% end %>
+    <ul class="nav navbar-nav">
+      <ul id="navigationbar">
+        <ul id="logobg">
+            <li class="YNTBS" id="Y">Y</li>
+            <li class="YNTBS" id="N">N</li>
+            <li class="YNTBS" id="T">T</li>
+            <li class="YNTBS" id="char"></li>
+            <ul id="bs">
+              <li id="B">Broadcasting</li>
+              <li id="S">System</li>          
+            </ul>
+        </ul>
+      </ul>
+        <ul id="logininfo">
+          <%= if @current_user do %>
+            <li><%= link "videos", to: video_path(@conn, :index)%></li>
+            <li><%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete" %></li>
+            <li><%= @current_user.username %></li>        
+          <% end %>
+        </ul>
     </ul>
-
+    <ul id="links">
+      <li class="navigation"><%= link "Watch", to: page_path(@conn, :index) %></li>
+      <li class="navigation"><%= link "Schedule", to: page_path(@conn, :schedule)%></li>
+    </ul>
   </div>
+
+
+
     <div class="container-fluid">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
@@ -40,7 +57,6 @@
     <footer class="footer">
       <div class='container'>
         <%= link "About", to: page_path(@conn, :about) %>
-        <p id= "footer">Created with <a href="http://elixir-lang.org">Elixir</a> + <a href="http://www.phoenixframework.org">Phoenix</a> and powered by <a href="http://www.youtube.com">YouTube</a></p>
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

@@ -1,12 +1,28 @@
 /* This file is for your main application css. */
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
 	color: #424242;
-	background-color: rgb(241, 241, 241)
+	background-color: rgb(246, 248, 250);
+	position: relative;
+	min-height: 100%;
+	margin: 0;
+    padding-bottom: 6rem;
 }
 
 a {
 	color: #424242;
 }
+
 
 #mute-toggle {
 	font-size: 20px;
@@ -47,12 +63,6 @@ a {
 
 .navigation {
 	display: inline-block;
-	padding-right: 20px;
- 	font-size: 11px;
- 	line-height: 14px;
- 	text-transform: uppercase;
- 	letter-spacing: 2px;
- 	color: #green;
 }
 
 .navigation > a:hover {
@@ -62,18 +72,12 @@ a {
 	color: #424242;
 }
 
-#logo{
-	font-size: 250%;
-	line-height: 44px;
-	letter-spacing: -2px;
-	font-weight: bold;
-}
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+	left: 0;
     text-align: center;
 }
 
@@ -88,17 +92,69 @@ a {
 	margin-top: 50px;
 }
 
-#chat{
+#tweetcontainer{
 	background: white;
-	overflow: hidden;
-	height: 400px;
 	border-radius: 5px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	margin-top: 20px;
 }
 
-#tweets{
-	background: white;
-	height: 50px;
-	border-radius: 5px;
-	padding-left: 5px;
+.YNTBS{
+	display: inline-block;
+	font-size: 220%;
+	letter-spacing: -3px;
+	font-weight: bold;
+	font-family: Georgia, Serif;
 }
 
+#navigationbar{
+	display: inline-block;
+	margin-top: 0px;
+	padding-left: 0px;
+}
+
+#logobg {
+	display: inline-block;
+	border-radius: 10px;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	user-select: none;
+    -webkit-user-select: none;
+}
+
+#logininfo {
+	display: inline-block ;
+}
+
+#sign {
+	font-size: 300%;
+}
+
+#links{
+	display: inline-block;
+	float: right;
+}
+
+#twitter-logo{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+}
+
+#tweetuser {
+	display: inline-block;
+	font-size: 18px;
+}
+
+#bs {
+	font-size: 100%;
+	display: inline-block;
+	padding-left: 0px;
+	list-style-type: none;
+	line-height: 12px;
+	letter-spacing: 0px;
+}

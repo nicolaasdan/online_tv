@@ -15,10 +15,11 @@ defmodule OnlineTv.TweetChannel do
 
   def handle_info(:after_join, socket) do
   	pid = spawn(fn ->
-		  stream = ExTwitter.stream_filter(track: "haim")
+		  stream = ExTwitter.stream_filter(track: "apple")
 		  for tweet <- stream do
 		    IO.puts tweet.text
 		    handle_in("message", tweet, socket)
+		    :timer.sleep(10000)
 		  end
 		end)
     {:noreply, socket}

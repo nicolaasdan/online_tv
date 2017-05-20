@@ -20,7 +20,9 @@ import "phoenix_html"
 
 import socket from "./socket"
 import Player from "./player"
+import yntbs from "./yntbs"
 
 let video = document.getElementById("video")
 let title = document.getElementById("title")
 let sec   = document.getElementById("seconds")
+
