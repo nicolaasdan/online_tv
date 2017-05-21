@@ -21,6 +21,7 @@ import "phoenix_html"
 import socket from "./socket"
 import Player from "./player"
 import yntbs from "./yntbs"
+import timezone from "./timezone"
 
 let video = document.getElementById("video")
 let title = document.getElementById("title")

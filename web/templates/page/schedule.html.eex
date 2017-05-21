@@ -1,33 +1,26 @@
 <div class='container'>
 
-<h1>Today</h1>
+<h3>Today</h3>
 
-<h4></h4>
+<h4 id="timezone">We think you are located in: </h4>
 
 <table class="table">
   <thead>
 
     <tr>
       <th>Show</th>
-      <th>EST (UTC-5)</th>
-      <th>PST (UTC-8)</th>
       <th>GMT (UTC)</th>
-      <th>CET (UTC+1)</th>
-      <th>AEST (UTC+10)</th>
-
-      <th></th>
+      <th>My timezone</th>
     </tr>
   </thead>
   <tbody>
 <%= for video <- @videos do %>
     <tr>
       <td><%= video.title %></td>
-      <td><%= video.start.hour - 5%>:<%= video.start.minute%></td>
-      <td><%= video.start.hour - 8%>:<%= video.start.minute%></td>
       <td><%= video.start.hour - 1%>:<%= video.start.minute%></td>
-      <td><%= video.start.hour %>:<%= video.start.minute %></td>
-      <td><%= hour(video.start.hour + 10)%>:<%= video.start.minute%></td>
+      <td><span class="mytz"><%= video.start.hour%></span>:<%= video.start.minute%></td>
     </tr>
+
 <% end %>
   </tbody>
 </table>

@@ -1,9 +1,18 @@
 <div class="container">
-	<p>Welcome,</p>
-	<p>This is a website where you can watch quality youtube videos at fixed times. See the schedule for more information</p>
-</div>
 
-<div class='container'>
-	<%= link "About", to: page_path(@conn, :about) %>
-    <p id= "footer">Created with <a href="http://elixir-lang.org">Elixir</a> + <a href="http://www.phoenixframework.org">Phoenix</a> and powered by <a href="http://www.youtube.com">YouTube</a></p>
+<h1 class="page-header">About</h1>
+
+	<p>Hi,</p>
+	<p>We at YNT Broadcasting System have a love for great original content. Thanks to the YouTube Api we get to harness all of the content available on Youtube. Each day we select some cool videos and play them at a fixed time. </p>
+	<p>Let us know what you think of the videos by tweeting along with the hashtag #YNTBS!</p>
+
+	<h3>Disclaimer</h3>
+	<p>As of yet, this website is not yet functional on mobile devices. Be sure to view this on a laptop or desktop PC</p>
+
+	<h3>Technical</h3>
+    <p>This website has been created with <a href="http://elixir-lang.org">Elixir</a> + <a href="http://www.phoenixframework.org">Phoenix</a>. If you're into that kind of stuff, definitly check it out. It's really cool stuff!</p>
+    <p>For the videos we rely on <a href="http://www.youtube.com">YouTube</a> and the YouTube API. The tweets we get from Twitter using the streaming API.</p>
+
+    <h3>Contact</h3>
+    <p>You can send me a message at yntbscontact@gmail.com</p>
 </div>

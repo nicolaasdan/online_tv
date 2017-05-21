@@ -56,7 +56,7 @@
 
     <footer class="footer">
       <div class='container'>
-        <%= link "About", to: page_path(@conn, :about) %>
+        <%= link "About", to: page_path(@conn, :about) %>, ©
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
