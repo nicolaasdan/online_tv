@@ -33,6 +33,9 @@ let Player = {
 			Player.mute()
 		    $(this).find('i').toggleClass('fa-volume-up fa-volume-off')
 		});
+
+		$("#mobile").append("<span id='mobile-play'>If you are on mobile, click here to start the video</span>")
+
 	},
 
 	onPlayerStateChange(event) {
@@ -46,6 +49,7 @@ let Player = {
     	console.log("destroyy")
     	this.player.destroy()
     	$("#mute-toggle").remove()
+    	$('#mobile-play').remove()
     },
     go_to(seconds) {
     	console.log(seconds + "secs in")

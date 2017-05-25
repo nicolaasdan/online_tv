@@ -107,8 +107,13 @@ channel.on('brussels', payload => {
 });
 
 channel.on('seconds', payload => {
+  console.log("seconds werden gepusht")
   Player.go_to(payload.seconds)
-  Player.play()
+});
+
+$("#mobile").click(function(){
+  console.log("mobile play clicked!")
+  channel.push('seconds')
 });
 
 ////////////////// TWEETS //////////////////
@@ -121,7 +126,6 @@ tweets_channel.join()
   .receive("error", resp => { console.log("Unable to join tweets channel", resp) })
 
 tweets_channel.on('message', payload => {
-  console.log(payload)
   $("#tweetuser").text(payload.user.name + ": ").hide().fadeIn()
   $("#tweetmsg").text(payload.text).hide().fadeIn()
 });
