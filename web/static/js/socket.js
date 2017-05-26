@@ -112,6 +112,7 @@ channel.on('seconds', payload => {
 
 $("#mobile").click(function(){
   channel.push('seconds')
+  console.log(Player.getPlayerState())
 });
 
 ////////////////// TWEETS //////////////////

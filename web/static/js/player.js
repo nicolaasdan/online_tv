@@ -39,14 +39,13 @@ let Player = {
 	},
 
 	onPlayerStateChange(event) {
-		//if (event.data == YT.PlayerState.ENDED) {
-        	//Get rid of the player
-        	//event.target.destroy();
-    	//}
+		if (event.data == YT.PlayerState.PLAYING) {
+        	console.log("STARTED")
+        	$("#cover").css("pointer-events", "none")
+    	}
 	},
 
     removePlayer() {
-    	console.log("destroyy")
     	this.player.destroy()
     	$("#mute-toggle").remove()
     	$('#mobile-play').remove()
@@ -54,7 +53,6 @@ let Player = {
     go_to(seconds) {
     	console.log(seconds + "secs in")
     	this.player.seekTo(Number(seconds))
-    	this.player.playVideo()
     },
 
     mute() {
@@ -66,6 +64,10 @@ let Player = {
     		this.player.mute();
     	}
     },
+
+    getPlayerState() {
+    	this.player.getPlayerState();
+    }
 }
 
 export default Player

@@ -32,7 +32,6 @@ a {
 }
 
 #cover {
-	pointer-events: none;
 	height: 100%;
 	width: 80%;
 }
