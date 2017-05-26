@@ -54,6 +54,7 @@ let Player = {
     go_to(seconds) {
     	console.log(seconds + "secs in")
     	this.player.seekTo(Number(seconds))
+    	this.player.playVideo()
     },
 
     mute() {

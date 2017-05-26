@@ -107,12 +107,10 @@ channel.on('brussels', payload => {
 });
 
 channel.on('seconds', payload => {
-  console.log("seconds werden gepusht")
   Player.go_to(payload.seconds)
 });
 
 $("#mobile").click(function(){
-  console.log("mobile play clicked!")
   channel.push('seconds')
 });
 
