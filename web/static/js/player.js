@@ -20,7 +20,7 @@ let Player = {
 				modestbranding: 1,
 				rel: 0,
 				showinfo: 0,
-				disablekb: 0
+				disablekb: 0,
 			},
 			events: {
 				"onReady": (event => onReady(event) ),
@@ -40,8 +40,7 @@ let Player = {
 
 	onPlayerStateChange(event) {
 		if (event.data == YT.PlayerState.PLAYING) {
-        	console.log("STARTED")
-        	$("#cover").css("pointer-events", "none")
+        	//$("#cover").css("pointer-events", "none")
     	}
 	},
 
@@ -67,7 +66,8 @@ let Player = {
 
     getPlayerState() {
     	this.player.getPlayerState();
-    }
+    },
+
 }
 
 export default Player
