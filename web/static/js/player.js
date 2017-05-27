@@ -15,12 +15,14 @@ let Player = {
 		this.player = new YT.Player(domId, {
 			videoId: playerId,
 			playerVars: {
-				autoplay: 1,
+				// autoplay: 1,
 				controls: 0,
 				modestbranding: 1,
 				rel: 0,
 				showinfo: 0,
-				disablekb: 0,
+				disablekb: 1,
+				fs: 0,
+				iv_load_policy: 3,
 			},
 			events: {
 				"onReady": (event => onReady(event) ),
@@ -34,13 +36,14 @@ let Player = {
 		    $(this).find('i').toggleClass('fa-volume-up fa-volume-off')
 		});
 
-		$("#mobile").append("<span id='mobile-play'>If you are on mobile, click here to start the video</span>")
+		$("#mobile").append("<span id='mobile-play'><button>Sync</button></span>")
 
 	},
 
 	onPlayerStateChange(event) {
 		if (event.data == YT.PlayerState.PLAYING) {
-        	//$("#cover").css("pointer-events", "none")
+			window.channel.push('seconds')
+        	$("#cover").css("pointer-events", "none")
     	}
 	},
 

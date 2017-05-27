@@ -62,12 +62,12 @@ let video = document.getElementById("video")
 
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("room", {})
+window.channel = socket.channel("room", {})
 channel.join()
   .receive("ok", resp => {
     console.log("joined successfully!", resp)
     if(resp.vid) {
-      Player.init(video.id, resp.vid, () => {Player.go_to(resp.sec)})
+      Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
       $('#name').remove()
       $('#message').remove()
     } else {
