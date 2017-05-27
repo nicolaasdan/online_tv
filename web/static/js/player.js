@@ -51,6 +51,7 @@ let Player = {
     	this.player.destroy()
     	$("#mute-toggle").remove()
     	$('#mobile-play').remove()
+    	$('#cover').css("pointer-events", "")
     },
     go_to(seconds) {
     	console.log(seconds + "secs in")
