@@ -32,7 +32,7 @@ defmodule OnlineTv.BrusVids do
       _->
         video = GenServer.call(:brus_vids, :get)
         time = DateTime.utc_now
-        time = DateTime.to_unix(time) + 7190 |> DateTime.from_unix!()
+        time = DateTime.to_unix(time) + 7200 |> DateTime.from_unix!()
         playtime(time, video.start)        
     end
   end

@@ -1,3 +1,5 @@
+var flag = true;
+
 let Player = {
 	player: null,
 
@@ -42,8 +44,11 @@ let Player = {
 
 	onPlayerStateChange(event) {
 		if (event.data == YT.PlayerState.PLAYING) {
-			window.channel.push('seconds')
-        	$("#cover").css("pointer-events", "none")
+			if(flag) {
+				window.channel.push('seconds')
+	        	$("#cover").css("pointer-events", "none")
+	        	flag = false;	
+        	}
     	}
 	},
 
@@ -71,6 +76,7 @@ let Player = {
     getPlayerState() {
     	this.player.getPlayerState();
     },
+
 
 }
 
