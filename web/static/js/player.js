@@ -47,7 +47,7 @@ let Player = {
 			if(flag) {
 				window.channel.push('seconds')
 	        	$("#cover").css("pointer-events", "none")
-	        	flag = false;	
+	        	flag = false
         	}
     	}
 	},
@@ -57,6 +57,7 @@ let Player = {
     	$("#mute-toggle").remove()
     	$('#mobile-play').remove()
     	$('#cover').css("pointer-events", "")
+    	flag = true
     },
     go_to(seconds) {
     	console.log(seconds + "secs in")
