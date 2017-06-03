@@ -38,7 +38,7 @@ let Player = {
 		    $(this).find('i').toggleClass('fa-volume-up fa-volume-off')
 		});
 
-		$("#mobile").append("<span id='mobile-play'><button>Sync</button></span>")
+		$("#mobile").append("<span id='mobile-play'><i class='fa fa-refresh'> </i></span>")
 
 	},
 

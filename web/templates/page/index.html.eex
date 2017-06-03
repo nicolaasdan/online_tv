@@ -6,14 +6,18 @@
 		</div>
 	</div>
 </div>
-<div class="container" style="text-align:right;">
-	<span id="mobile"></span>
-	<span id="toggles"></span>
-</div>
-<br>
 
-<div class='container' id="tweetcontainer">
+<div class='col-sm-2'>
+	 
+</div>
+
+<div class='col-sm-8' id="tweetcontainer">
 <img id="twitter-logo" src="<%= static_path(@conn, "/images/Twitter_Logo_Blue.png") %>">
 	<b><div id="tweetuser"></div></b>
 	<div id="tweets"><span id="tweetmsg"></span></div>
+</div>
+
+<div class="col-sm-2" id="toggles-container">
+	<div id="mobile"></div>
+	<div id="toggles"></div>
 </div>

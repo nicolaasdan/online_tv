@@ -60,6 +60,15 @@ a {
 	height:100%;
 }
 
+@media (max-width: 960px) {
+	#cover {
+		height: 100%;
+		width: 100%;
+		background: green;
+	}
+}
+
+
 .navigation {
 	display: inline-block;
 }
@@ -94,11 +103,11 @@ a {
 #tweetcontainer{
 	background: white;
 	border-radius: 5px;
-	padding-top: 15px;
+	padding-top: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .YNTBS{
@@ -126,7 +135,8 @@ a {
 }
 
 #logininfo {
-	display: inline-block ;
+	display: inline-block;
+	text-align: center;
 }
 
 #sign {
@@ -158,6 +168,6 @@ a {
 	letter-spacing: 0px;
 }
 
-#mobile {
-	float: left;
+#toggles-container {
+	padding-top: 12px;
 }

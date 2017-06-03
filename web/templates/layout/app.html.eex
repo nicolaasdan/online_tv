@@ -30,15 +30,15 @@
       </ul>
         <ul id="logininfo">
           <%= if @current_user do %>
-            <li><%= link "videos", to: video_path(@conn, :index)%></li>
-            <li><%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete" %></li>
-            <li><%= @current_user.username %></li>        
+            <span><%= link "videos", to: video_path(@conn, :index)%></span>
+            <span><%= link "Log out", to: session_path(@conn, :delete, @current_user), method: "delete" %></span>
+            <span><%= @current_user.username %></span>        
           <% end %>
         </ul>
     </ul>
     <ul id="links">
-      <li class="navigation"><%= link "Watch", to: page_path(@conn, :index) %></li>
-      <li class="navigation"><%= link "Schedule", to: page_path(@conn, :schedule)%></li>
+      <span class="navigation"><%= link "Watch", to: page_path(@conn, :index) %></span>
+      <span class="navigation"><%= link "Schedule", to: page_path(@conn, :schedule)%></span>
     </ul>
   </div>
 
