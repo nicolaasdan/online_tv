@@ -1,28 +1,29 @@
 <div class='container'>
 
-<h3>Today</h3>
+<h4 id="scheduleheader">TODAY</h4>
 
-<h4 id="timezone">We think you are located in: </h4>
 
 <table class="table">
   <thead>
 
     <tr>
       <th>Show</th>
-      <th>GMT (UTC)</th>
-      <th>My timezone</th>
+      <th>GMT</th>
+      <th><b>Local</b></th>
     </tr>
   </thead>
   <tbody>
 <%= for video <- @videos do %>
     <tr>
       <td><%= video.title %></td>
-      <td><%= video.start.hour - 1%>:<%= video.start.minute%></td>
-      <td><span class="mytz"><%= video.start.hour%></span>:<%= video.start.minute%></td>
+      <td><%= video.start.hour %>:<%= video.start.minute%> - <%= video.end.hour %>:<%= if (video.end.minute < 10) do "0" <> to_string(video.end.minute) else video.end.minute end %></td>
+      <td><span class="mytz"><%= video.start.hour%></span>:<%= video.start.minute%> - <span class="mytz"><%= video.end.hour%></span>:<%= if (video.end.minute < 10) do "0" <> to_string(video.end.minute) else video.end.minute end %></td>
     </tr>
 
 <% end %>
   </tbody>
 </table>
+
+<p id="timezone"></p>
 
 </div>

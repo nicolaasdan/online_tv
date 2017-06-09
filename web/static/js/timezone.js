@@ -1,12 +1,15 @@
 var x = new Date();
 var currentTimeZoneOffsetInHours = x.getTimezoneOffset() / 60;
 
-$('#timezone').html("you are located in the timezone GMT" + currentTimeZoneOffsetInHours + ". ")
+$('#timezone').html("We think you are located in GMT" + currentTimeZoneOffsetInHours + ". ")
 
 $('.mytz').each(function(index, value) {
 	var d = new Date();
 	var int = parseInt($(this).text())
 	var hour = int + currentTimeZoneOffsetInHours + 2
+	if(hour > 24) {
+		hour = hour - 24
+	}
 	d.setHours(hour)
 	$(this).text(d.getHours())
 });
