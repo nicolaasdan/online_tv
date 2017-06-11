@@ -16,7 +16,7 @@
 <%= for video <- @videos do %>
     <tr>
       <td><%= video.title %></td>
-      <td><%= video.start.hour %>:<%= video.start.minute%> - <%= video.end.hour %>:<%= if (video.end.minute < 10) do "0" <> to_string(video.end.minute) else video.end.minute end %></td>
+      <td><span class="gmt"><%= video.start.hour%></span>:<%= video.start.minute%> - <span class="gmt"><%= video.end.hour%></span>:<%= if (video.end.minute < 10) do "0" <> to_string(video.end.minute) else video.end.minute end %></td>
       <td><span class="mytz"><%= video.start.hour%></span>:<%= video.start.minute%> - <span class="mytz"><%= video.end.hour%></span>:<%= if (video.end.minute < 10) do "0" <> to_string(video.end.minute) else video.end.minute end %></td>
     </tr>
 

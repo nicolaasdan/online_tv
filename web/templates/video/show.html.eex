@@ -1,28 +1,30 @@
-<h2>Show video</h2>
+<div class="container">
+    <h2>Show video</h2>
 
-<ul>
+    <ul>
 
-  <li>
-    <strong>User:</strong>
-    <%= @video.user_id %>
-  </li>
+      <li>
+        <strong>User:</strong>
+        <%= @video.user_id %>
+      </li>
 
-  <li>
-    <strong>Url:</strong>
-    <%= @video.url %>
-  </li>
+      <li>
+        <strong>Url:</strong>
+        <%= @video.url %>
+      </li>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @video.title %>
-  </li>
+      <li>
+        <strong>Title:</strong>
+        <%= @video.title %>
+      </li>
 
-  <li>
-    <strong>Duration:</strong>
-    <%= @video.duration %>
-  </li>
+      <li>
+        <strong>Duration:</strong>
+        <%= @video.duration %>
+      </li>
 
-</ul>
+    </ul>
 
-<%= link "Edit", to: video_path(@conn, :edit, @video) %>
-<%= link "Back", to: video_path(@conn, :index) %>
+    <%= link "Edit", to: video_path(@conn, :edit, @video) %>
+    <%= link "Back", to: video_path(@conn, :index) %>
+</div>

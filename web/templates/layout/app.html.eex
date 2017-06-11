@@ -39,6 +39,7 @@
     <ul id="links">
       <span class="navigation"><%= link "Watch", to: page_path(@conn, :index) %></span>
       <span class="navigation"><%= link "Schedule", to: page_path(@conn, :schedule)%></span>
+      <span class="navigation"><%= link "About", to: page_path(@conn, :about) %></span>
     </ul>
   </div>
 
@@ -56,7 +57,8 @@
 
     <footer class="footer">
       <div class='container'>
-        <%= link "About", to: page_path(@conn, :about) %>, ©
+        
+        <div id="nicolaasdanneels">Nicolaas Danneels © 2017</div>
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

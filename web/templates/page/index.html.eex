@@ -1,7 +1,7 @@
 <div id="sidebars" class="container-fluid">
 	<div id="cover" class="container-fluid">
 		<div class="video-container">
-			<p id="info">Videos start automatically, no need to refresh</p>
+			<p id="info">When the video appears, hit play to start watching!</p>
 			<div id="video"></div>
 		</div>
 	</div>

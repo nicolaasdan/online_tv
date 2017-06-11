@@ -1,6 +1,9 @@
-<h2>Edit video</h2>
+<div class="container">
 
-<%= render "form.html", changeset: @changeset, categories: @categories,
-                        action: video_path(@conn, :update, @video) %>
+	<h2>Edit video</h2>
 
-<%= link "Back", to: video_path(@conn, :index) %>
+	<%= render "form.html", changeset: @changeset, categories: @categories,
+	                        action: video_path(@conn, :update, @video) %>
+
+	<%= link "Back", to: video_path(@conn, :index) %>
+</div>
