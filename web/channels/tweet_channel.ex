@@ -13,7 +13,7 @@ defmodule OnlineTv.TweetChannel do
 
   def handle_info(:after_join, socket) do
   	pid = spawn(fn ->
-		  stream = ExTwitter.stream_filter(track: "apple")
+		  stream = ExTwitter.stream_filter(track: "#YNTBS")
 		  for tweet <- stream do
 		    IO.puts tweet.text
 		    handle_in("message", tweet, socket)
