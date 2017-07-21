@@ -46,9 +46,12 @@ let Player = {
 		if (event.data == YT.PlayerState.PLAYING) {
 			if(flag) {
 				window.channel.push('seconds')
-	        	$("#cover").css("pointer-events", "none")
+	        	//$("#cover").css("pointer-events", "none")
 	        	flag = false
         	}
+    	}
+    	if (event.data == YT.PlayerState.ENDED) {
+    		$(".video-container").css("z-index", "-1")
     	}
 	},
 
@@ -56,7 +59,7 @@ let Player = {
     	this.player.destroy()
     	$("#mute-toggle").remove()
     	$('#mobile-play').remove()
-    	$('#cover').css("pointer-events", "")
+    	$('.video-container').css("z-index", "0")
     	flag = true
     },
     go_to(seconds) {

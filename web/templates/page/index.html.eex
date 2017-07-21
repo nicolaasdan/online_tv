@@ -14,7 +14,7 @@
 <div class='col-sm-8' id="tweetcontainer">
 <img id="twitter-logo" src="<%= static_path(@conn, "/images/Twitter_Logo_Blue.png") %>">
 	<b><div id="tweetuser"></div></b>
-	<div id="tweets"><span id="tweetmsg"></span></div>
+	<div id="tweets">Tweet along with #YNTBS<span id="tweetmsg"></span></div>
 </div>
 
 <div class="col-sm-2" id="toggles-container">

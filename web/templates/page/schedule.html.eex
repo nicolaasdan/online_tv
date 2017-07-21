@@ -27,3 +27,7 @@
 <p id="timezone"></p>
 
 </div>
+
+
+<p>test  <%= inspect getvid %></p>
+

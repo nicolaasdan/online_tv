@@ -1,10 +1,12 @@
 defmodule OnlineTv.Brussels do
 	use GenServer
 	use Timex
-	alias Rumbl.Repo
-	alias Rumbl.Video
+	alias OnlineTv.Repo
+	alias OnlineTv.Video
 	import Ecto
 	import Ecto.Query
+
+  @channels [{:Kurzgesagt, "UCsXVk37bltHxD1rDPwtNM8Q"}, {:trasher_mag, "UCt16NSYjauKclK67LCXvQyA"}, {:casey_neistat, "UCtinbF-Q-fVthA0qrFQTgXQ"}, {:kaptainkristian, "UCuPgdqQKpq4T4zeqmTelnFg"}, {:react, "UCHEf6T_gVq4tlW5i91ESiWg"}, {:omeleto, "UCTMt7iMWa7jy0fNXIktwyLA"}, {:Vsauce, "UC6nSFpj9HTCZ5t-N3Rm3-HA"}, {:you_suck_at_cooking, "UCekQr9znsk2vWxBo3YiLq2w"}, {:yes_theory, "UCvK4bOhULCpmLabd2pDMtnA"}, {:screen_junkies, "UCOpcACMWblDls9Z6GERVi1A"}, {:soulpancake, "UCaDVcGDMkvcRb4qGARkWlyg"}, {:primitive_technology, "UCUK0HBIBWgM2c4vsPhkYY4w"}, {:CGP_grey, "UC2C_jShtL725hvbm1arSV9w"}, {:school_of_life, "UC6-ymYjG0SU0jUWnWh9ZzEQ"}]
 
 	def start_link do
 		GenServer.start_link(__MODULE__, %{}, name: :brussels)
@@ -46,11 +48,14 @@ defmodule OnlineTv.Brussels do
 
     case {OnlineTv.BrusVids.get, current_vid} do
       {nil, nil} ->
-        :ok
+        #:ok
+        getvid
         #OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "new video en stored video is allebei nil"}
       {_, nil} ->
         #OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "video stopt en wordt nu nil"}
         OnlineTv.BrusVids.set(:brus_vids, nil)
+        :timer.sleep(1000)
+        getvid
       {nil, current_vid} ->
         #OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "nil -> current video"}
         OnlineTv.BrusVids.set(:brus_vids, new_video)
@@ -58,7 +63,6 @@ defmodule OnlineTv.Brussels do
         :ok
         #OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "er gebeurt niks, want videos zijn gelijk"}
     end
-
 
     Process.send_after(self(), :work, 5000) # In 2 hours
   end
@@ -90,5 +94,44 @@ defmodule OnlineTv.Brussels do
     |> List.last
     |> List.last
   end
+
+  def getvid do
+    IO.puts("getvid werkt!")
+    video = Tubex.Video.search_by_query("", [maxResults: 25, channelId: elem(Enum.random(@channels), 1), videoDuration: "medium"] )
+    video = elem(video, 1)
+    video = Enum.random(video)
+    duration = get_dur(video.video_id)
+    Repo.insert!(%Video{title: video.title, start: Timex.shift(DateTime.utc_now, hours: 2), url: "https://www.youtube.com/watch?v=" <> video.video_id, end: Timex.shift(DateTime.utc_now, hours: 2, minutes: duration.minute + 1)})
+  end
+
+  def get_dur(video_id) do
+    Tubex.Video.detail(video_id)
+    |> Map.get("items")
+    |> List.first
+    |> Map.get("contentDetails")
+    |> Map.get("duration")
+    |> to_list
+    |> to_time
+  end
+
+  def to_list(duration) do
+    ~r/[A-Z]/
+    |> Regex.split(duration, trim: true)
+    # Returns list in format: ["23", "21", "3"] of ["12", "32"]
+  end
+
+  def to_time(list) do
+    case list do
+      [min, sec] ->
+        Time.new(0, String.to_integer(min), String.to_integer(sec), 0)
+      [hour, min, sec] ->
+        Time.new(String.to_integer(hour), String.to_integer(min), String.to_integer(sec), 0)
+      _->
+        {:error}
+    end
+    |> Tuple.to_list
+    |> List.last
+  end
+
 
 end

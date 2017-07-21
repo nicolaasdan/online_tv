@@ -37,9 +37,7 @@
         </ul>
     </ul>
     <ul id="links">
-      <span class="navigation"><%= link "Watch", to: page_path(@conn, :index) %></span>
-      <span class="navigation"><%= link "Schedule", to: page_path(@conn, :schedule)%></span>
-      <span class="navigation"><%= link "About", to: page_path(@conn, :about) %></span>
+      <!-- <span class="navigation"><%= link "Watch", to: page_path(@conn, :index) %></span> -->
     </ul>
   </div>
 
@@ -57,7 +55,7 @@
 
     <footer class="footer">
       <div class='container'>
-        
+        <!---<span ><%= link "About", to: page_path(@conn, :about) %></span> -->
         <div id="nicolaasdanneels">Nicolaas Danneels © 2017</div>
       </div>
     </footer>
