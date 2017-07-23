@@ -102,7 +102,7 @@ defmodule OnlineTv.Brussels do
     video = elem(video, 1)
     video = Enum.random(video)
     duration = get_dur(video.video_id)
-    Repo.insert!(%Video{title: video.title, start: Timex.shift(DateTime.utc_now, hours: 2), url: "https://www.youtube.com/watch?v=" <> video.video_id, end: Timex.shift(DateTime.utc_now, hours: 2, minutes: duration.minute + 1)})
+    Repo.insert!(%Video{title: video.title, start: Timex.shift(DateTime.utc_now, hours: 2), url: "https://www.youtube.com/v/" <> video.video_id, end: Timex.shift(DateTime.utc_now, hours: 2, minutes: duration.minute + 1)})
   end
 
   def get_dur(video_id) do
