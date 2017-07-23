@@ -65,7 +65,7 @@ let video = document.getElementById("video")
 window.channel = socket.channel("room", {})
 channel.join()
   .receive("ok", resp => {
-    console.log("joined successfully!", resp)
+    //console.log("joined successfully!", resp)
     if(resp.vid) {
       Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
       $('#name').remove()
@@ -75,7 +75,7 @@ channel.join()
     }
   })
 
-  .receive("error", resp => { console.log("Unable to join", resp) })
+  .receive("error", resp => { })//console.log("Unable to join", resp) })
 
 export default socket
 
@@ -112,7 +112,7 @@ channel.on('seconds', payload => {
 
 $("#mobile").click(function(){
   channel.push('seconds')
-  console.log(Player.getPlayerState())
+  //console.log(Player.getPlayerState())
 });
 
 ////////////////// TWEETS //////////////////
@@ -120,9 +120,9 @@ let tweets_channel = socket.channel("tweets", {})
 
 tweets_channel.join()
   .receive("ok", resp => {
-    console.log("joined tweets channel", resp)
+    //console.log("joined tweets channel", resp)
   })
-  .receive("error", resp => { console.log("Unable to join tweets channel", resp) })
+  .receive("error", resp => { })//console.log("Unable to join tweets channel", resp) })
 
 tweets_channel.on('message', payload => {
   $("#tweetuser").text(payload.user.name + ": ").hide().fadeIn()

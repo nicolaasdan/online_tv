@@ -6,7 +6,7 @@ let Player = {
 	init(domId, playerId, onReady){
 		window.onYouTubeIframeAPIReady = () => {
 			this.onIframeReady(domId, playerId, onReady)
-			console.log("init function werkt")
+			//console.log("init function werkt")
 		}
 		let youtubeScriptTag = document.createElement("script")
 		youtubeScriptTag.src = "//www.youtube.com/iframe_api"
@@ -63,12 +63,12 @@ let Player = {
     	flag = true
     },
     go_to(seconds) {
-    	console.log(seconds + "secs in")
+    	//console.log(seconds + "secs in")
     	this.player.seekTo(Number(seconds))
     },
 
     mute() {
-    	console.log("mute")
+    	//console.log("mute")
     	if(this.player.isMuted()){
     		this.player.unMute();
     	}
