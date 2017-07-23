@@ -38,6 +38,7 @@
     </ul>
     <ul id="links">
       <!-- <span class="navigation"><%= link "Watch", to: page_path(@conn, :index) %></span> -->
+      <span><i>Watch cool videos together with the internet</i></span>
     </ul>
   </div>
 

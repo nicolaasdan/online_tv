@@ -6,7 +6,7 @@ defmodule OnlineTv.Brussels do
 	import Ecto
 	import Ecto.Query
 
-  @channels [{:Kurzgesagt, "UCsXVk37bltHxD1rDPwtNM8Q"}, {:trasher_mag, "UCt16NSYjauKclK67LCXvQyA"}, {:casey_neistat, "UCtinbF-Q-fVthA0qrFQTgXQ"}, {:kaptainkristian, "UCuPgdqQKpq4T4zeqmTelnFg"}, {:react, "UCHEf6T_gVq4tlW5i91ESiWg"}, {:omeleto, "UCTMt7iMWa7jy0fNXIktwyLA"}, {:Vsauce, "UC6nSFpj9HTCZ5t-N3Rm3-HA"}, {:you_suck_at_cooking, "UCekQr9znsk2vWxBo3YiLq2w"}, {:yes_theory, "UCvK4bOhULCpmLabd2pDMtnA"}, {:screen_junkies, "UCOpcACMWblDls9Z6GERVi1A"}, {:soulpancake, "UCaDVcGDMkvcRb4qGARkWlyg"}, {:primitive_technology, "UCUK0HBIBWgM2c4vsPhkYY4w"}, {:CGP_grey, "UC2C_jShtL725hvbm1arSV9w"}, {:school_of_life, "UC6-ymYjG0SU0jUWnWh9ZzEQ"}]
+  @channels [{:Kurzgesagt, "UCsXVk37bltHxD1rDPwtNM8Q"}, {:trasher_mag, "UCt16NSYjauKclK67LCXvQyA"}, {:casey_neistat, "UCtinbF-Q-fVthA0qrFQTgXQ"}, {:kaptainkristian, "UCuPgdqQKpq4T4zeqmTelnFg"}, {:react, "UCHEf6T_gVq4tlW5i91ESiWg"}, {:omeleto, "UCTMt7iMWa7jy0fNXIktwyLA"}, {:Vsauce, "UC6nSFpj9HTCZ5t-N3Rm3-HA"}, {:you_suck_at_cooking, "UCekQr9znsk2vWxBo3YiLq2w"}, {:yes_theory, "UCvK4bOhULCpmLabd2pDMtnA"}, {:screen_junkies, "UCOpcACMWblDls9Z6GERVi1A"}, {:soulpancake, "UCaDVcGDMkvcRb4qGARkWlyg"}, {:primitive_technology, "UCUK0HBIBWgM2c4vsPhkYY4w"}, {:CGP_grey, "UC2C_jShtL725hvbm1arSV9w"}, {:school_of_life, "UC6-ymYjG0SU0jUWnWh9ZzEQ"}, {:funny_or_die, "UCzS3-65Y91JhOxFiM7j6grg"}, {:the_late_late_show_w_james_corden, "UCJ0uqCI0Vqr2Rrt1HseGirg"}, {:bad_lip_reading, "UC67f2Qf7FYhtoUIF4Sf29cA"}, {:dude_perfect, "UCRijo3ddMTht_IHyNSNXpNQ"}, {:vice, "UCn8zNIfYAQNdrFRrr8oibKw"}, {:pewdiepie, "UC-lHJZR3Gqxm24_Vd_AJ5Yw"}, {:every_frame_a_painting, "UCjFqcJQXGZ6T6sxyFB-5i6A"}, {:lemmino, "UCRcgy6GzDeccI7dkbbBna3Q"}, {:the_great_war, "UCUcyEsEjhPEDf69RRVhRh4A"}]
 
 	def start_link do
 		GenServer.start_link(__MODULE__, %{}, name: :brussels)
@@ -55,6 +55,7 @@ defmodule OnlineTv.Brussels do
         #OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "video stopt en wordt nu nil"}
         OnlineTv.BrusVids.set(:brus_vids, nil)
         :timer.sleep(1000)
+        Repo.delete_all(Video)
         getvid
       {nil, current_vid} ->
         #OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "nil -> current video"}
