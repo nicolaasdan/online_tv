@@ -7,6 +7,7 @@ defmodule OnlineTv.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug App.Restrict.AllowIframe
     plug OnlineTv.Auth, repo: OnlineTv.Repo
   end
 

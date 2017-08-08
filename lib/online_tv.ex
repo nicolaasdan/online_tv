@@ -32,4 +32,5 @@ defmodule OnlineTv do
     OnlineTv.Endpoint.config_change(changed, removed)
     :ok
   end
+
 end
