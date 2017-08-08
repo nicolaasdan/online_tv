@@ -39,7 +39,6 @@ let Player = {
 		});
 
 		$("#mobile").append("<span id='mobile-play'><i class='fa fa-refresh'> </i></span>")
-
 	},
 
 	onPlayerStateChange(event) {
@@ -52,11 +51,13 @@ let Player = {
     	}
     	if (event.data == YT.PlayerState.ENDED) {
     		$(".video-container").css("z-index", "-1")
+    		$("#title").text("Thanks for watching! The next video will start very shortly..")
     	}
 	},
 
     removePlayer() {
     	this.player.destroy()
+    	$("#title").text("Thanks for watching! The next video will start very shortly..")
     	$("#mute-toggle").remove()
     	$('#mobile-play').remove()
     	$('.video-container').css("z-index", "0")

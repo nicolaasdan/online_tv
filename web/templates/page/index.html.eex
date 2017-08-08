@@ -1,7 +1,9 @@
+<div id="title" class="container"></div>
+
 <div id="sidebars" class="container-fluid">
 	<div id="cover" class="container-fluid">
 		<div class="video-container">
-			<p id="info">Thanks for watching! The next video will start very shortly</p>
+			<p id="info"></p>
 			<div id="video"></div>
 		</div>
 	</div>

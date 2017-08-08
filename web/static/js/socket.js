@@ -67,9 +67,11 @@ channel.join()
   .receive("ok", resp => {
     //console.log("joined successfully!", resp)
     if(resp.vid) {
+      Player.init(video.id, resp.vid, () => {Player.removePlayer()}) //Player.go_to(resp.sec)
       Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
       $('#name').remove()
       $('#message').remove()
+      $('#title').text(resp.title)
     } else {
       Player.init(video.id, resp.vid, () => {Player.removePlayer()})
     }
@@ -114,6 +116,11 @@ $("#mobile").click(function(){
   channel.push('seconds')
   //console.log(Player.getPlayerState())
 });
+
+channel.on('title', payload => {
+  $('#title').text(payload.msg)
+  console.log(payload.msg)
+})
 
 ////////////////// TWEETS //////////////////
 let tweets_channel = socket.channel("tweets", {})

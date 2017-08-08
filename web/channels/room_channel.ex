@@ -2,7 +2,7 @@ defmodule OnlineTv.RoomChannel do
   use Phoenix.Channel
 
   def join("room", _payload, socket) do
-    seconds = %{vid: OnlineTv.BrusVids.on_join, sec: OnlineTv.BrusVids.play}
+    seconds = %{vid: elem(OnlineTv.BrusVids.on_join, 0), sec: OnlineTv.BrusVids.play, title: elem(OnlineTv.BrusVids.on_join, 1)}
     {:ok, seconds, socket}
   end
 

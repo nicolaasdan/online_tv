@@ -24,7 +24,7 @@
             <li class="YNTBS" id="char"></li>
             <ul id="bs">
               <li id="B">Broadcasting</li>
-              <li id="S">System</li>          
+              <li id="S">System </li>          
             </ul>
         </ul>
       </ul>
@@ -44,7 +44,7 @@
 
 
 
-    <div class="container-fluid">
+    <div id="containerfluid" class="container-fluid">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 

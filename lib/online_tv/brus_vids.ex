@@ -16,7 +16,9 @@ defmodule OnlineTv.BrusVids do
         OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "video is nil"}      
       _->
         url = get.url |> player_id
-        OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: url}      
+        title = get.title
+        OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: url}
+        OnlineTv.Endpoint.broadcast! "room", "title", %{msg: title}
     end
   end
 
@@ -43,7 +45,9 @@ defmodule OnlineTv.BrusVids do
         nil
       _->
         video = GenServer.call(:brus_vids, :get)
-        video.url |> player_id
+        url = video.url |> player_id
+        title = video.title
+        {url, title}
     end
   end
 

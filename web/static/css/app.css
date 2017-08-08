@@ -192,3 +192,15 @@ th {
 #nicolaasdanneels{
 	font-size: 10px;
 }
+
+#title{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	padding: 5px;
+	font-size: 15px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#containerfluid{
+}
