@@ -82,6 +82,10 @@ let Player = {
     	this.player.getPlayerState();
     },
 
+    cueVideoById(Id) {
+    	this.player.loadVideoById(Id, 0, 'large')
+    	console.log("video cued")
+    },
 
 }
 

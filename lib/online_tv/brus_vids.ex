@@ -13,7 +13,7 @@ defmodule OnlineTv.BrusVids do
     GenServer.call(pid, {:set, new_value})
     case get do
       nil ->
-        OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "video is nil"}      
+        OnlineTv.Endpoint.broadcast! "room", "brussels", %{msg: "video is nil"}
       _->
         url = get.url |> player_id
         title = get.title

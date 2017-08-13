@@ -65,6 +65,8 @@ let video = document.getElementById("video")
 window.channel = socket.channel("room", {})
 channel.join()
   .receive("ok", resp => {
+    Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
+    /*
     //console.log("joined successfully!", resp)
     if(resp.vid) {
       Player.init(video.id, resp.vid, () => {Player.removePlayer()}) //Player.go_to(resp.sec)
@@ -75,6 +77,7 @@ channel.join()
     } else {
       Player.init(video.id, resp.vid, () => {Player.removePlayer()})
     }
+*/
   })
 
   .receive("error", resp => { })//console.log("Unable to join", resp) })
@@ -83,6 +86,7 @@ export default socket
 
 ///////////////// custom /////////////////:
 
+/*
 channel.on('brussels', payload => {
   var json = JSON.parse(JSON.stringify(payload));
   //list.append(`<b>${json.name || 'Anonymous'}:</b> ${json.msg}<br>`);
@@ -94,19 +98,22 @@ channel.on('brussels', payload => {
     let message = $('#message');
     let name    = $('#name');
 
-    message.on('keypress', event => {
-      if (event.keyCode == 13) {
-        channel.push('message', { name: name.val(), message: message.val() });
-        message.val('');
-      }
-    });
-
   } else {
     Player.onIframeReady(video.id, json.msg, () => {})
     $("#name").remove()
     $("#message").remove()
   }
 });
+
+*/
+
+channel.on('brussels', payload => {
+  if(payload.msg != "video is nil") {
+    $('.video-container').css("z-index", "0")
+  }
+  Player.cueVideoById(payload.msg)
+  console.log(payload.msg)
+})
 
 channel.on('seconds', payload => {
   Player.go_to(payload.seconds)
