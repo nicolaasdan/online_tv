@@ -57,7 +57,7 @@
     <footer class="footer">
       <div class='container'>
         <!---<span ><%= link "About", to: page_path(@conn, :about) %></span> -->
-        <div id="nicolaasdanneels">Nicolaas Danneels © 2017</div>
+        <div id="nicolaasdanneels">Made by <a href="mailto:yntbscontact@gmail.com">Nicolaas Danneels</a></div>
         <div id="nicolaasdanneels">Powered by the YouTube API and Twitter API</div>
       </div>
     </footer>

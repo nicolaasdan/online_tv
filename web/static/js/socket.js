@@ -66,6 +66,7 @@ window.channel = socket.channel("room", {})
 channel.join()
   .receive("ok", resp => {
     Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
+    $('#title').text(resp.title)
     /*
     //console.log("joined successfully!", resp)
     if(resp.vid) {
@@ -112,7 +113,7 @@ channel.on('brussels', payload => {
     $('.video-container').css("z-index", "0")
   }
   Player.cueVideoById(payload.msg)
-  console.log(payload.msg)
+  //console.log(payload.msg)
 })
 
 channel.on('seconds', payload => {
@@ -126,7 +127,7 @@ $("#mobile").click(function(){
 
 channel.on('title', payload => {
   $('#title').text(payload.msg)
-  console.log(payload.msg)
+  //console.log(payload.msg)
 })
 
 ////////////////// TWEETS //////////////////
