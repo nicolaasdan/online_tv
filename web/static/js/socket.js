@@ -65,10 +65,20 @@ let video = document.getElementById("video")
 window.channel = socket.channel("room", {})
 channel.join()
   .receive("ok", resp => {
-    Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
-    $('#title').text(resp.title)
+    if (Player.player != undefined) {
+      Player.cueVideoById(resp.vid)
+      Player.go_to(resp.sec)
+      $('#title').text(resp.title)
+      $('.video-container').css("z-index", "0")     
+    } 
+    else {
+      Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
+      $('#title').text(resp.title)      
+    }
+    console.log(Player.player)
+
+    console.log("joined successfully!", resp)
     /*
-    //console.log("joined successfully!", resp)
     if(resp.vid) {
       Player.init(video.id, resp.vid, () => {Player.removePlayer()}) //Player.go_to(resp.sec)
       Player.init(video.id, resp.vid, () => {}) //Player.go_to(resp.sec)
@@ -81,7 +91,7 @@ channel.join()
 */
   })
 
-  .receive("error", resp => { })//console.log("Unable to join", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) })
 
 export default socket
 

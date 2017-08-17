@@ -45,9 +45,10 @@ let Player = {
 		if (event.data == YT.PlayerState.PLAYING) {
 			if(flag) {
 				window.channel.push('seconds')
-	        	//$("#cover").css("pointer-events", "none")
 	        	flag = false
         	}
+        	$(".video-container").css("z-index", "0")
+
     	}
     	if (event.data == YT.PlayerState.ENDED) {
     		$(".video-container").css("z-index", "-1")
@@ -85,6 +86,10 @@ let Player = {
     cueVideoById(Id) {
     	this.player.loadVideoById(Id, 0, 'large')
     },
+
+    getVideoUrl() {
+    	this.player.getVideoUrl()
+    }
 
 }
 
